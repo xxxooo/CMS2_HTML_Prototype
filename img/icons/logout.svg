@@ -1,0 +1,9 @@
+<svg width="24px" height="24px" viewBox="0 2 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="logout_s" opacity="0.75" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(0.000000, 2.000000)">
+        <polygon id="Shape" points="0 0 24 0 24 24 0 24"></polygon>
+        <path d="M15,3 C12.3,3 9.8,4.2 8.1,6.2 C7.8,6.6 7.8,7.3 8.2,7.6 C8.7,8 9.3,7.9 9.6,7.5 C11,5.9 12.9,5 15,5 C18.9,5 22,8.1 22,12 C22,15.9 18.9,19 15,19 C12.9,19 11,18.1 9.6,16.5 C9.2,16.1 8.6,16 8.2,16.4 C7.8,16.8 7.7,17.4 8.1,17.8 C9.8,19.8 12.3,21 15,21 C20,21 24,17 24,12 C24,7 20,3 15,3 Z M3.4,13 L16,13 C16.6,13 17,12.6 17,12 C17,11.4 16.6,11 16,11 L3.4,11 L5.2,9.2 C5.6,8.8 5.6,8.2 5.2,7.8 C4.8,7.4 4.2,7.4 3.8,7.8 L0.3,11.3 C-0.1,11.7 -0.1,12.3 0.3,12.7 L3.8,16.2 C4,16.4 4.3,16.5 4.5,16.5 C4.8,16.5 5,16.4 5.2,16.2 C5.6,15.8 5.6,15.2 5.2,14.8 L3.4,13 Z" id="Combined-Shape" fill="#FFFFFF"></path>
+    </g>
+</svg>
