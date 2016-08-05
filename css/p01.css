@@ -191,6 +191,12 @@ h1, h2, h3, h4, h5, h6 {
 .ic-tagn:before {
   content: url(../img/icons/tagn.svg);
 }
+.ic-menu:before {
+  content: url(../img/icons/menu.svg);
+}
+.ic-close:before {
+  content: url(../img/icons/close.svg);
+}
 
 #list-sheet {
   float: left;
@@ -260,6 +266,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .ts-preview {
   flex: 1;
+  min-width: 0;
   padding: 4px 8px;
 }
 
@@ -316,4 +323,54 @@ h1, h2, h3, h4, h5, h6 {
 
 .ts-action > .round-btn:hover {
   box-shadow: inset 0px -1px 8px 0px rgba(0,0,0,.1)
+}
+
+#menu-on, #menu-off {
+  display: none;
+}
+
+@media (max-width: 799px) {
+  .ts-action {
+    display: none;
+  }
+}
+
+@media (max-width: 719px) {
+  #menu-sheet, #list-sheet {
+    width: 100%;
+    max-width: none;
+    position: absolute;
+    left: 0;
+    -webkit-transition: left .5s;
+    transition: left .5s;
+  }
+
+  #menu-sheet {
+    z-index: 19;
+  }
+
+  #menu-on, #menu-off {
+    display: inline-block;;
+  }
+
+  #menu-off {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+  }
+
+  .off {
+    left: -100% !important;
+  }
+
+  .ts-action {
+    display: block;
+  }
+
+}
+
+@media (max-width: 529px) {
+  .ts-action {
+    display: none;
+  }
 }
