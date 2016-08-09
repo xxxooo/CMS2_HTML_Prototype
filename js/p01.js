@@ -1,19 +1,17 @@
 $(function(){
 
-  var menu_node = $('#menu-sheet');
+  var menu_node = $('.menu-sheet');
   var _X = 0,
       _Y = 0,
       dX = 0,
       dY = 0;
 
-  $('#menu-on, #menu-off, #list-sheet-cover').click(function(){
-    toggleMenu();
-  });
+  $('.menu-on, .menu-off, .list-sheet-cover').click( toggleMenu );
 
   // 將來串接連結用
-  $('.menu-term').click(function(){
-    toggleMenu();
-  });
+  $('.menu-term').click( toggleMenu );
+
+  $('.view-sheet').click( toggleView );
 
   // menu_node.on('mousedown', touchStart);
   menu_node.on('touchstart', touchStart);
@@ -21,7 +19,11 @@ $(function(){
 
   function toggleMenu(){
     menu_node.toggleClass('off');
-    $('#list-sheet-cover').toggleClass('cover-off');
+    $('.list-sheet-cover').toggleClass('cover-off');
+  }
+
+  function toggleView(){
+    $('#app-body').toggleClass('view-mode');
   }
 
   function touchStart(e){

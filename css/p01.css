@@ -14,10 +14,10 @@ h1, h2, h3, h4, h5, h6 {
   background: #DEDEDE;
 }
 
-#menu-sheet {
+.menu-sheet {
   float: left;
-  width: 33.3333%;
-  max-width: 320px;
+  width: 30%;
+  max-width: 360px;
   height: 100%;
   overflow: scroll;
   background-image: url(../img/menu_background.jpg);
@@ -25,13 +25,82 @@ h1, h2, h3, h4, h5, h6 {
   color: #FFF;
 }
 
-#menu-sheet::-webkit-scrollbar {
+.menu-sheet::-webkit-scrollbar {
   width: 0;
+}
+
+.list-sheet {
+  float: left;
+  width: 70%;
+  max-width: 840px;
+  height: 100%;
+  overflow: scroll;
+  box-shadow: 0 0 48px rgba(0, 0, 0, .25);
+}
+
+.view-sheet {
+  float: left;
+  width: auto;
+  height: 100%;
+  overflow: scroll;
+}
+
+.view-mode {
+  padding-left: 50px;
+}
+
+.view-mode > .menu-sheet {
+  width: 50px;
+  margin-left: -50px;
+}
+
+.view-mode > .list-sheet {
+  width: 35%;
+}
+
+.view-mode > .view-sheet {
+  width: 65%;
+}
+
+.view-mode > .view-sheet > .top-bar {
+  display: block;
+  width: 100%;
+}
+
+.view-mode > .menu-sheet > .user-info {
+  height: 0;
+}
+
+.view-mode > .menu-sheet > .udn-logo {
+  height: 0;
+}
+
+.view-mode > .menu-sheet .menu-term {
+  color: transparent;
+}
+
+.view-mode > .menu-sheet > .menu-section:after {
+  width: inherit;
+}
+
+/* view-mode 切換動畫 */
+.menu-sheet,
+.list-sheet,
+.view-sheet,
+.user-info,
+.udn-logo,
+.menu-term
+{
+  -webkit-transition-property: width, height, color;
+  -webkit-transition-duration: .5s;
+  transition-property: width, height, color;
+  transition-duration: .5s;
 }
 
 .user-info {
   font-size: 14px;
   margin: 8px 10%;
+  overflow: hidden;
 }
 
 .trismall {
@@ -47,10 +116,12 @@ h1, h2, h3, h4, h5, h6 {
 .udn-logo {
   width: 100px;
   height: 100px;
+
   background-image: url(../img/Logo_udn.png);
-  background-size: 100% 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
   margin: auto;
-  -webkit-filter: drop-shadow(0px 2px 12px #rgba(255,255,255,.3));
+  -webkit-filter: drop-shadow(0px 2px 12px rgba(255,255,255,.3));
   filter: drop-shadow(0px 2px 12px rgba(255,255,255,.3));
 }
 
@@ -76,6 +147,8 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 20px;
   font-weight: 100;
   text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .menu-term > .count {
@@ -106,22 +179,45 @@ h1, h2, h3, h4, h5, h6 {
 }
 .menu-term:hover > .icon24::before {
   opacity: 1;
-  -webkit-filter: drop-shadow(1px 2px 4px #rgba(0,0,0,.5));
-  filter: drop-shadow(1px 2px 4px #rgba(0,0,0,.5));
+  -webkit-filter: drop-shadow(1px 2px 4px rgba(0,0,0,.5));
+  filter: drop-shadow(1px 2px 4px rgba(0,0,0,.5));
 }
 
-#list-menu > .icon24 {
+.view-sheet > .top-bar {
+  display: none;
+}
+
+.top-bar {
+  /*position: fixed;*/
+  position: absolute;
+  width: inherit;
+  max-width: inherit;
   height: 46px;
-  padding: 0 6px;
+  top: 0;
+  left: none;
+  background: rgba(236, 236, 236, .9);
+  border-bottom: 2px solid rgba(18, 130, 155, .5);
+  z-index: 10;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.top-bar:nth-of-type(odd) {
+  border-left: 2px solid #D8D8D8;
+}
+
+.top-bar > .icon24 {
+  height: 46px;
+  padding: 0 14px 0 6px;
   color: #12829B;
   cursor: pointer;
 }
 
-#list-menu > .icon24:hover {
+.top-bar > .icon24:hover {
   background: #FFF;
 }
 
-#list-menu > .icon24::before {
+.top-bar > .icon24::before {
   line-height: 44px;
   top: 6px;
   margin: 0 8px;
@@ -147,6 +243,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 .ic-star::before {
   content: url(../img/icons/star.svg);
+}
+.ic-star_b::before {
+  content: url(../img/icons/star_b.svg);
 }
 .ic-draft::before {
   content: url(../img/icons/draft.svg);
@@ -178,8 +277,14 @@ h1, h2, h3, h4, h5, h6 {
 .ic-edit::before {
   content: url(../img/icons/edit.svg);
 }
+.ic-edit_b::before {
+  content: url(../img/icons/edit_b.svg);
+}
 .ic-send::before {
   content: url(../img/icons/send.svg);
+}
+.ic-send_b::before {
+  content: url(../img/icons/send_b.svg);
 }
 .ic-search::before {
   content: url(../img/icons/search.svg);
@@ -190,6 +295,9 @@ h1, h2, h3, h4, h5, h6 {
 .ic-tagn::before {
   content: url(../img/icons/tagn.svg);
 }
+.ic-tagm::before {
+  content: url(../img/icons/tagm.svg);
+}
 .ic-menu::before {
   content: url(../img/icons/menu.svg);
 }
@@ -197,34 +305,7 @@ h1, h2, h3, h4, h5, h6 {
   content: url(../img/icons/close.svg);
 }
 
-#list-sheet {
-  float: left;
-  width: 66.6667%;
-  max-width: 800px;
-  height: 100%;
-  overflow: scroll;
-  box-shadow: 0 0 48px rgba(0, 0, 0, .25);
-}
 
-#list-menu {
-  position: fixed;
-  width: inherit;
-  max-width: inherit;
-  height: 46px;
-  top: 0;
-  background: rgba(236, 236, 236, .9);;
-  border-bottom: 2px solid rgba(18, 130, 155, .5);
-  display: flex;
-  z-index: 10;
-}
-
-#list-menu > .spacer {
-  flex: 1;
-}
-
-#list-menu > span:last-of-type {
-  margin-right: 60px;
-}
 
 .teaser-list {
   margin-top: 48px;
@@ -328,8 +409,19 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: inset 0px -1px 8px 0px rgba(0,0,0,.1)
 }
 
-#menu-on, #menu-off {
+.menu-on, .menu-off {
   display: none;
+}
+
+.view-content {
+  margin-top: 48px;
+}
+
+
+@media (max-width: 1200px) {
+  .view-sheet {
+    display: none;
+  }
 }
 
 /* 列表右方功能鍵消失 */
@@ -347,35 +439,35 @@ h1, h2, h3, h4, h5, h6 {
 
 /* 版面轉變為單一大欄，主選單向左滑出隱藏 */
 @media (max-width: 779px) {
-  #menu-sheet, #list-sheet {
+  .menu-sheet, .list-sheet {
     width: 100%;
     max-width: none;
     position: absolute;
     left: 0;
   }
-  #menu-sheet {
+  .menu-sheet {
     width: 360px;
     box-shadow: 0 0 48px rgba(0, 0, 0, .25);
     -webkit-transition: all .5s;
     transition: all .5s;
     z-index: 20;
   }
-  #list-sheet {
+  .list-sheet {
     box-shadow: none;
   }
-  #menu-on, #menu-off {
-    display: inline-block;;
+  .menu-on, .menu-off {
+    display: inline-block;
   }
-  #menu-off {
+  .menu-off {
     position: absolute;
     top: 12px;
     right: 16px;
   }
   .off {
-    left: -360px !important;
-    box-shadow: none !important;
+    left: -360px;
+    box-shadow: none;
   }
-  #list-sheet-cover {
+  .list-sheet-cover {
     display: block;
     width: 100%;
     height: 100%;
@@ -386,7 +478,7 @@ h1, h2, h3, h4, h5, h6 {
     transition: opacity .75s;
   }
   .cover-off {
-    opacity: 0 !important;
+    opacity: 0;
     pointer-events: none;
   }
   .ts-thumb {
@@ -399,7 +491,7 @@ h1, h2, h3, h4, h5, h6 {
     width: 40%;
   }
   .story-meta > .created-time {
-    float: none;;
+    float: none;
   }
 
 }
@@ -420,18 +512,16 @@ h1, h2, h3, h4, h5, h6 {
 
 /* 隱藏列表搜尋功能文字 */
 @media (max-width: 439px) {
-  #menu-sheet {
+  .menu-sheet {
     width: 100%;
   }
   .off {
-    left: -100% !important;
+    left: -100%;
   }
-  #list-menu > .icon24 {
+  .top-bar > .icon24 {
     width: 40px;
     overflow: hidden;
     color: transparent;
-  }
-  #list-menu > .spacer {
-    flex: 0;
+    padding-right: 6px;
   }
 }
