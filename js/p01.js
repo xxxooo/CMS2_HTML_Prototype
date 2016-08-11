@@ -6,19 +6,25 @@ $(function(){
       dX = 0,
       dY = 0;
 
+  // 開關左側主選單
   $('.menu-on, .menu-off, .list-sheet-cover').click( toggleMenu );
 
-  // 將來串接連結用
-  $('.menu-term').click( toggleMenu );
+  // 主選單按鈕動作
+  $('.menu-term').click( clickMenu );
 
+  // 點選進入文章預覽
   $('.ts-thumb, .ts-preview').click( onViewMode );
 
-  $('#off-view-mode').click( offViewMode );
+  // 離開文章預覽模式
+  $('.off-view-mode').click( offViewMode );
 
+  // view-sheet 右上更多功能小選單
   $('#more-action').click( toggleMoreAction );
 
-  $('.list-sheet, .view-sheet').scroll( fixTopBar );
+  // 關閉更多功能小選單
+  $('.view-sheet > .view-content').click( offMoreAction );
 
+  // 觸控動作開始囉
   // menu_node.on('mousedown', touchStart);
   menu_node.on('touchstart', touchStart);
 
@@ -29,20 +35,34 @@ $(function(){
     $('.list-sheet-cover').toggleClass('cover-off');
   }
 
+  function clickMenu(){
+    menu_node.removeClass('off');
+    $('.list-sheet-cover').removeClass('cover-off');
+
+    offViewMode();
+  }
+
   function onViewMode(){
     $('#app-body').addClass('view-mode');
+    $('.teaser').removeClass('on-view');
+    $(this).parent().addClass('on-view');
+
+    setTimeout(function(){
+      $('#app-body').addClass('view-show');
+    }, 500);
   }
 
   function offViewMode(){
-    $('#app-body').removeClass('view-mode');
+    $('#app-body').removeClass('view-mode view-show');
+    $('.teaser').removeClass('on-view');
   }
 
   function toggleMoreAction(){
     $('#more-action > ul').toggleClass('show');
   }
 
-  function fixTopBar(e){
-    $(this).children('.top-bar').css('top', $(this).scrollTop());
+  function offMoreAction(e){
+    $('#more-action > ul').removeClass('show');
   }
 
   function touchStart(e){
