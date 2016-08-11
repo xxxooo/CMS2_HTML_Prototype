@@ -11,7 +11,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #app-body {
-  max-width: 1920px;
+  max-width: 2160px;
   height: inherit;
   margin: auto;
   background: #DEDEDE;
@@ -47,6 +47,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .view-sheet {
+  width: 0;
   opacity: 0;
 }
 .view-sheet > div {
@@ -54,10 +55,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .view-mode > .menu-sheet {
-  width: 18.75%;
+  width: 16.6666%;
 }
 .view-mode > .list-sheet {
-  width: 31.25%;
+  width: 33.3333%;
 }
 .view-mode > .view-sheet {
   width: 50%;
@@ -72,7 +73,7 @@ h1, h2, h3, h4, h5, h6 {
 .view-mode .teaser-list > .on-view::after {
   content: ' ';
   display: block;
-  position: relative;
+  position: absolute;
   width: 18px;
   height: 18px;
   background: #FFF;
@@ -413,6 +414,7 @@ ul.fn-list > li > a {
   background: #FAFAFA;
   border: 1px solid #E0E0E0;
   display: flex;
+  position: relative;
 }
 
 .ts-thumb {
@@ -468,6 +470,7 @@ ul.fn-list > li > a {
   margin: 0;
   height: 62px;
   font-size: 14px;
+  line-height: 20px;
   color: #777;
   text-overflow: ellipsis;
   overflow: hidden;
