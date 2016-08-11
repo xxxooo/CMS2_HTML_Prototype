@@ -11,10 +11,17 @@ $(function(){
   // 將來串接連結用
   $('.menu-term').click( toggleMenu );
 
-  $('.view-sheet').click( toggleView );
+  $('.ts-thumb, .ts-preview').click( onViewMode );
+
+  $('#off-view-mode').click( offViewMode );
+
+  $('#more-action').click( toggleMoreAction );
+
+  $('.list-sheet, .view-sheet').scroll( fixTopBar );
 
   // menu_node.on('mousedown', touchStart);
   menu_node.on('touchstart', touchStart);
+
 
 
   function toggleMenu(){
@@ -22,8 +29,20 @@ $(function(){
     $('.list-sheet-cover').toggleClass('cover-off');
   }
 
-  function toggleView(){
-    $('#app-body').toggleClass('view-mode');
+  function onViewMode(){
+    $('#app-body').addClass('view-mode');
+  }
+
+  function offViewMode(){
+    $('#app-body').removeClass('view-mode');
+  }
+
+  function toggleMoreAction(){
+    $('#more-action > ul').toggleClass('show');
+  }
+
+  function fixTopBar(e){
+    $(this).children('.top-bar').css('top', $(this).scrollTop());
   }
 
   function touchStart(e){
