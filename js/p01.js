@@ -25,10 +25,19 @@ $(function(){
   $('.view-sheet > .view-content').click( offMoreAction );
 
   // 觸控動作開始囉
-  // menu_node.on('mousedown', touchStart);
-  menu_node.on('touchstart', touchStart);
+  $(window).resize( referMenuTouch );
+
+  referMenuTouch();
 
 
+
+  function referMenuTouch() {
+    menu_node.off('touchstart', touchStart);
+
+    if ( $('.list-sheet').width() == $(window).width() ) {
+      menu_node.on('touchstart', touchStart);
+    }
+  }
 
   function toggleMenu(){
     menu_node.toggleClass('off');
@@ -36,9 +45,7 @@ $(function(){
   }
 
   function clickMenu(){
-    menu_node.removeClass('off');
-    $('.list-sheet-cover').removeClass('cover-off');
-
+    toggleMenu();
     offViewMode();
   }
 
@@ -72,17 +79,14 @@ $(function(){
         WebkitTransition : 'none',
         transition       : 'none'
       });
-      // setXY(e, false);
       setXY(e.targetTouches[0], false);
-      // menu_node.on('mousemove', touchMoving);
-      // $(document).on('mouseup', touchEnd);
+
       menu_node.on('touchmove', touchMoving);
       $(document).on('touchend touchcancel', touchEnd);
     }
   }
 
   function touchMoving(e){
-    // setXY(e, true);
     setXY(e.targetTouches[0], true);
     if (4*dX*dX > dY*dY) {
       e.preventDefault();
@@ -96,8 +100,6 @@ $(function(){
   }
 
   function touchEnd(){
-    // menu_node.off('mousemove', touchMoving);
-    // $(document).off('mouseup', touchEnd);
     menu_node.off('touchmove', touchMoving);
     $(document).off('touchend touchcancel', touchEnd);
     menu_node.removeAttr('style');

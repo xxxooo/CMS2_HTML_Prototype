@@ -2,7 +2,7 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%;
-  background: #777;
+  background: #E2E2E2;
   font-family: "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", "Microsoft YaHei",  "Helvetica Neue", sans-serif;
 }
 
@@ -11,10 +11,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #app-body {
-  max-width: 2160px;
   height: inherit;
-  margin: auto;
-  background: #DEDEDE;
 }
 
 .menu-sheet,
@@ -34,6 +31,8 @@ h1, h2, h3, h4, h5, h6 {
   background-image: url(../img/menu_background.jpg);
   background-size: 100% 100%;
   color: #FFF;
+  text-rendering: geometricPrecision;
+  -webkit-transform: translateZ(0px);
 }
 
 .menu-sheet::-webkit-scrollbar {
@@ -43,7 +42,7 @@ h1, h2, h3, h4, h5, h6 {
 .list-sheet {
   width: 70%;
   max-width: 840px;
-  box-shadow: 0 0 48px rgba(0, 0, 0, .25);
+  box-shadow: 0 0 48px rgba(0, 0, 0, .2);
 }
 
 .view-sheet {
@@ -59,6 +58,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 .view-mode > .list-sheet {
   width: 33.3333%;
+  max-width: 860px;
+  box-shadow: none;
 }
 .view-mode > .view-sheet {
   width: 50%;
@@ -105,10 +106,14 @@ h1, h2, h3, h4, h5, h6 {
 /* view-mode 切換動畫 */
 .menu-sheet,
 .list-sheet,
-.view-sheet,
+.view-sheet {
+  -webkit-transition: width .5s;
+  transition: width .5s;
+}
+
 .udn-logo {
-  -webkit-transition: width .5s, height .5s;
-  transition: width .5s, height .5s;
+  -webkit-transition: height .5s;
+  transition: height .5s;
 }
 
 .menu-term {
@@ -179,7 +184,7 @@ h1, h2, h3, h4, h5, h6 {
   padding: 8px 10%;
   color: inherit;
   font-size: 20px;
-  font-weight: 100;
+  font-weight: 200;
   text-decoration: none;
   white-space: nowrap;
   overflow: hidden;
@@ -229,8 +234,9 @@ h1, h2, h3, h4, h5, h6 {
   height: 48px;
   top: 0;
   box-sizing: border-box;
-  background: rgba(236, 236, 236, .85);
-  border-left: 2px solid #D8D8D8;
+  background: rgba(240, 240, 240, .88);
+  border-left: 1px solid #D8D8D8;
+  border-right: 1px solid #D8D8D8;
   border-bottom: 2px solid rgba(18, 130, 155, .5);
   z-index: 10;
   white-space: nowrap;
@@ -271,7 +277,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .top-bar > .to-right {
-  float: right;
+  /*float: right;*/
+  position: absolute;
+  right: 0;
 }
 
 .icon24 > ul {
@@ -283,7 +291,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 ul.fn-list {
-  background: rgba(236, 236, 236, .85);
+  background: rgba(240, 240, 240, .88);
   border: 2px solid rgba(18, 130, 155, .5);
   position: absolute;
   right: 0;
@@ -414,7 +422,7 @@ ul.fn-list > li > a {
   background: #FAFAFA;
   border: 1px solid #E0E0E0;
   display: flex;
-  position: relative;
+  position: relative; /* 給.on-view::after 小三角形定位用 */
 }
 
 .ts-thumb {
@@ -542,10 +550,10 @@ ul.fn-list > li > a {
     z-index: 15;
   }
   .view-mode > .list-sheet {
-    width: 35%;
+    width: 37.5%;
   }
   .view-mode > .view-sheet {
-    width: 65%;
+    width: 62.5%;
   }
   .view-mode > .menu-sheet > .user-info {
     display: none;
@@ -610,19 +618,26 @@ ul.fn-list > li > a {
   .menu-sheet,
   .list-sheet,
   .view-sheet {
-    position: absolute;
     width: 100%;
     left: 0;
   }
   .menu-sheet {
+    position: fixed;
+    height: 100%;
     box-shadow: 0 0 48px rgba(0, 0, 0, .25);
     -webkit-transition: left .5s, box-shadow .5s;
     transition: left .5s, box-shadow .5s;
     z-index: 20;
   }
   .list-sheet {
+    position: absolute;
+    height: auto;
     box-shadow: none;
     z-index: 6;
+  }
+  .view-sheet {
+    position: absolute;
+    height: auto;
   }
 
   .menu-on, .menu-off {
