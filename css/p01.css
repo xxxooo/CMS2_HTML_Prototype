@@ -47,6 +47,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .view-sheet {
   width: 0;
+  height: 0;
   opacity: 0;
 }
 .view-sheet > div {
@@ -63,6 +64,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .view-mode > .view-sheet {
   width: 50%;
+  height: 100%;
 }
 .view-mode .teaser {
   background: #F0F0F0;
@@ -77,7 +79,7 @@ h1, h2, h3, h4, h5, h6 {
   position: absolute;
   width: 18px;
   height: 18px;
-  background: #FFF;
+  background: #FAFAFA;
   box-shadow: -2px 2px 0px 0px #E0E0E0;
   top: 48px;
   right: -12px;
@@ -637,7 +639,7 @@ ul.fn-list > li > a {
   }
   .view-sheet {
     position: absolute;
-    height: auto;
+    height: 0;
   }
 
   .menu-on, .menu-off {
@@ -694,14 +696,22 @@ ul.fn-list > li > a {
   }
   .view-mode > .view-sheet {
     width: 100%;
+    height: auto;
   }
   .view-mode > .view-sheet > .top-bar > .icon24 {
     width: auto;
     color: #12829B;
     padding-right: 14px;
   }
+  .view-show > .list-sheet {
+    height: 0;
+  }
   .view-show > .view-sheet > .top-bar > .off-view-mode {
     display: inline-block;
+  }
+  .list-sheet::-webkit-scrollbar,
+  .view-sheet::-webkit-scrollbar {
+    width: 0;
   }
 
 }
