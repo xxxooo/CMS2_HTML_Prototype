@@ -13,11 +13,13 @@ h1, h2, h3, h4, h5, h6 {
 #app-body {
   height: inherit;
 }
+.view-show {
+  background: #FAFAFA;
+}
 
 .menu-sheet,
 .list-sheet,
 .view-sheet {
-  position: relative;
   float: left;
   overflow-x: hidden;
   overflow-y: scroll;
@@ -55,11 +57,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .view-mode > .menu-sheet {
-  width: 16.6666%;
+  width: 18.75%;
 }
 .view-mode > .list-sheet {
-  width: 33.3333%;
-  max-width: 860px;
+  width: 31.25%;
   box-shadow: none;
 }
 .view-mode > .view-sheet {
@@ -98,7 +99,9 @@ h1, h2, h3, h4, h5, h6 {
 .view-mode > .view-sheet > div {
   display: block;
 }
-
+.view-show > .list-sheet > .top-bar > .off-view-mode {
+  display: inline-block;
+}
 .view-show > .view-sheet {
   opacity: 1;
 }
@@ -230,7 +233,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .top-bar {
-  position: fixed;
+  position: absolute;
   width: inherit;
   max-width: inherit;
   height: 48px;
@@ -544,6 +547,12 @@ ul.fn-list > li > a {
   cursor: pointer;
 }
 
+@media (min-width: 1921px) {
+  .menu-sheet {
+    max-width: 480px;
+  }
+}
+
 
 /* 三欄版面使用 .view-mode 切換欄寬 */
 @media (max-width: 1440px) {
@@ -579,9 +588,6 @@ ul.fn-list > li > a {
   .view-show > .list-sheet > .top-bar,
   .view-show > .list-sheet > .teaser-list {
     padding-left: 50px;
-  }
-  .view-show > .list-sheet > .top-bar > .off-view-mode {
-    display: inline-block;
   }
 }
 
@@ -622,6 +628,7 @@ ul.fn-list > li > a {
   .view-sheet {
     width: 100%;
     left: 0;
+    overflow-y: visible;
   }
   .menu-sheet {
     position: fixed;
@@ -632,7 +639,7 @@ ul.fn-list > li > a {
     z-index: 20;
   }
   .list-sheet {
-    position: absolute;
+    /*position: absolute;*/
     height: auto;
     box-shadow: none;
     z-index: 6;
@@ -669,6 +676,9 @@ ul.fn-list > li > a {
     opacity: 0;
     pointer-events: none;
   }
+  .top-bar {
+    position: fixed;
+  }
   .ts-thumb {
     width: 30%;
   }
@@ -691,6 +701,7 @@ ul.fn-list > li > a {
     z-index: -3;
   }
   .view-mode > .list-sheet {
+    position: absolute; /* 給進入view-mode時過場動畫用 */
     width: 100%;
     left: -100%;
   }
@@ -739,7 +750,7 @@ ul.fn-list > li > a {
 
 
 /* 隱藏列表搜尋功能文字 */
-@media (max-width: 440px) {
+@media (max-width: 408px) {
   .menu-sheet {
     width: 100%;
     max-width: none;

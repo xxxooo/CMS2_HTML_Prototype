@@ -1,5 +1,5 @@
 $(function(){
-
+  
   var menu_node = $('.menu-sheet');
   var _X = 0,
       _Y = 0,
@@ -25,19 +25,10 @@ $(function(){
   $('.view-sheet > .view-content').click( offMoreAction );
 
   // 觸控動作開始囉
+  referMenuTouch();
   $(window).resize( referMenuTouch );
 
-  referMenuTouch();
 
-
-
-  function referMenuTouch() {
-    menu_node.off('touchstart', touchStart);
-
-    if ( $('.list-sheet').width() == $(window).width() ) {
-      menu_node.on('touchstart', touchStart);
-    }
-  }
 
   function toggleMenu(){
     menu_node.toggleClass('off');
@@ -70,6 +61,14 @@ $(function(){
 
   function offMoreAction(e){
     $('#more-action > ul').removeClass('show');
+  }
+
+  function referMenuTouch() {
+    menu_node.off('touchstart', touchStart);
+
+    if ( $('.list-sheet').width() == $(window).width() ) {
+      menu_node.on('touchstart', touchStart);
+    }
   }
 
   function touchStart(e){
